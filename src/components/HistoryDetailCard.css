@@ -1,0 +1,10 @@
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+tr > td {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -2%;
+  padding: 8px 0;
+}

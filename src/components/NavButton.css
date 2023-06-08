@@ -1,0 +1,21 @@
+.side-nav__item {
+  list-style: none;
+  color: #596780;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0 14px 16px;
+  border-radius: 10px;
+  transition: all 0.4s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.side-nav__item:hover,
+.side-nav__item-active {
+  background-color: #7c5cfc;
+  color: white;
+}
+.side-nav__item:not(:last-child) {
+  margin-bottom: 4px;
+}

@@ -1,0 +1,13 @@
+.sidebar__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0 56px -30px;
+}
+.sidebar__logo-header {
+  margin-left: 14px;
+}
+.side-nav {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,70 @@
+.header-container {
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: -2%;
+}
+.section-header {
+  line-height: 24px;
+  font-size: 16px;
+}
+.transaction-history {
+  width: 100%;
+  text-align: left;
+  vertical-align: middle;
+  margin-top: 24px;
+}
+.header-container {
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: -2%;
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+tr > th {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  color: #90a3bf;
+  padding-bottom: 24px;
+}
+.btn {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-white {
+  background-color: white;
+  color: black;
+  border: 2px solid #7c5cfc;
+}
+.footer-container {
+  margin-top: 20px;
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: -2%;
+}
