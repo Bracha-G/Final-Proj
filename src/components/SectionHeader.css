@@ -1,0 +1,16 @@
+.header-container {
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: -2%;
+}
+.section-header {
+  font-size: 18px;
+}
+.up-arrow,
+.total-box__left {
+  margin-right: 24px;
+}

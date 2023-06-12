@@ -8,3 +8,18 @@ tr > td {
   letter-spacing: -2%;
   padding: 8px 0;
 }
+.img {
+  width: 23;
+  height: 23;
+  fill: none;
+}
+.img:not(:root) {
+  overflow-clip-margin: content-box;
+  overflow: hidden;
+}
+.text {
+  margin-left: 8px;
+}
+.pic {
+  margin-right: 8px;
+}

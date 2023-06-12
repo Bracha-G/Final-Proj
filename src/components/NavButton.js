@@ -4,7 +4,8 @@ function NavButton(props) {
   return (
     <>
       <li className={`side-nav__item ${props.className}`}>
-        {props.pic}
+        <div className="icon">{props.icon}</div>
+
         <span>{props.span}</span>
       </li>
     </>

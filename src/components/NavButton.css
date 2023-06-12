@@ -19,3 +19,6 @@
 .side-nav__item:not(:last-child) {
   margin-bottom: 4px;
 }
+.icon {
+  flex-shrink: 0;
+}

@@ -1,0 +1,46 @@
+/* -------------- PIE CHART -------------- */
+.pie-chart {
+  height: 220px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#my-pie-chart {
+  height: 220px;
+  width: 220px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ffacc8 0,
+    15.34%,
+    #cc6ff8 15.34% 26.21%,
+    #7c5cfc 26.21% 42.37%,
+    #eb7ca6 42.37% 100%
+  );
+}
+
+.spending-box {
+  position: relative;
+}
+
+.overall-spending {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 32%;
+  left: 50%;
+  text-align: center;
+}
+
+.overall-spending > h4 {
+  color: #596780;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.overall-spending > span {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+}

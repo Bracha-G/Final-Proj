@@ -1,11 +1,10 @@
 import "./DisplayAmountCard.css";
+import SectionHeader from "./SectionHeader";
 
 function DisplayAmountCard(props) {
   return (
     <>
-      <div className="header-container">
-        <h3 className="section-header">{props.title}</h3>
-      </div>
+      <SectionHeader title={props.title} icon={props.icon}></SectionHeader>
       <h1 className="price">
         {props.amount}
         <span className="price-currency">(USD)</span>
