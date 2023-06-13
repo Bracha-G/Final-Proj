@@ -10,44 +10,46 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 function Nav(props) {
   return (
     <>
-      <div>
-        <div className="sidebar__logo">
-          <h2 className="sidebar__logo-header">The Ma'aser App</h2>
+      <nav className="sidebar">
+        <div>
+          <div className="sidebar__logo">
+            <h2 className="sidebar__logo-header">The Ma'aser App</h2>
+          </div>
+          <ul className="side-nav">
+            <NavButton
+              className={"side-nav__item-active"}
+              span={"Dashboard"}
+              icon={<FontAwesomeIcon icon={faHouse} />}
+            ></NavButton>
+            <NavButton
+              pic={""}
+              span={"Income"}
+              className={"undefined"}
+              icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
+            ></NavButton>
+            <NavButton
+              span={"Donations"}
+              className={"undefined"}
+              icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
+            ></NavButton>
+            <NavButton
+              span={"Inbox"}
+              className={"undefined"}
+              icon={<FontAwesomeIcon icon={faCommentDots} />}
+            ></NavButton>
+            <NavButton
+              span={"Settings"}
+              className={"undefined"}
+              icon={<FontAwesomeIcon icon={faGear} />}
+            ></NavButton>
+            <NavButton
+              span={"Log Out"}
+              className={"undefined"}
+              icon={<FontAwesomeIcon icon={faArrowRightFromBracket} />}
+            ></NavButton>
+          </ul>
         </div>
-        <ul className="side-nav">
-          <NavButton
-            className={"side-nav__item-active"}
-            span={"Dashboard"}
-            icon={<FontAwesomeIcon icon={faHouse} />}
-          ></NavButton>
-          <NavButton
-            pic={""}
-            span={"Income"}
-            className={"undefined"}
-            icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
-          ></NavButton>
-          <NavButton
-            span={"Donations"}
-            className={"undefined"}
-            icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
-          ></NavButton>
-          <NavButton
-            span={"Inbox"}
-            className={"undefined"}
-            icon={<FontAwesomeIcon icon={faCommentDots} />}
-          ></NavButton>
-          <NavButton
-            span={"Settings"}
-            className={"undefined"}
-            icon={<FontAwesomeIcon icon={faGear} />}
-          ></NavButton>
-          <NavButton
-            span={"Log Out"}
-            className={"undefined"}
-            icon={<FontAwesomeIcon icon={faArrowRightFromBracket} />}
-          ></NavButton>
-        </ul>
-      </div>
+      </nav>
     </>
   );
 }

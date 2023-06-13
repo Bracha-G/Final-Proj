@@ -1,17 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  height: 100vh;
+}
 .container {
   display: flex;
   height: 100%;
 }
-.sidebar {
-  width: 240px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  justify-content: space-between;
-  border-right: 1px solid #f3f5f7;
-  padding: 0 16px;
-  overflow: auto;
-}
+
 .main-content {
   display: flex;
   flex-direction: column;
@@ -133,28 +139,24 @@ input[type="date"] {
   padding: 7px 10px;
   margin-left: 10px;
 }
+.first {
+  background: #eb7ca6;
+}
 
+.second {
+  background: #ffacc8;
+}
+
+.third {
+  background: #cc6ff8;
+}
+
+.fourth {
+  background: #7c5cfc;
+}
 @media (max-width: 1300px) {
   .bottom-container__left,
   .bottom-container__right {
     width: 100%;
   }
-}
-
-/*login*/
-.user-name {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -2%;
-  margin: 0 37px 0 12px;
-}
-.user-nav,
-.user-info {
-  display: flex;
-  align-items: center;
-}
-.user-image {
-  height: 44px;
-  width: 44px;
 }

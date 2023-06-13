@@ -5,19 +5,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 35px;
 }
 
-#my-pie-chart {
+.my-pie-chart {
   height: 220px;
   width: 220px;
   border-radius: 50%;
-  background: conic-gradient(
-    #ffacc8 0,
-    15.34%,
-    #cc6ff8 15.34% 26.21%,
-    #7c5cfc 26.21% 42.37%,
-    #eb7ca6 42.37% 100%
-  );
 }
 
 .spending-box {
@@ -27,7 +21,7 @@
 .overall-spending {
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 32%;
+  top: 37%;
   left: 50%;
   text-align: center;
 }
@@ -43,4 +37,28 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 150%;
+}
+
+.first {
+  background: #eb7ca6;
+}
+
+.second {
+  background: #ffacc8;
+}
+
+.third {
+  background: #cc6ff8;
+}
+
+.fourth {
+  background: #7c5cfc;
+}
+
+.fifth {
+  background: #5caffc;
+}
+
+.sixth {
+  background: #a1a9fe;
 }

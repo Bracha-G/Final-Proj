@@ -9,44 +9,21 @@ import SectionHeader from "./components/SectionHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
-import Button from "./components/Button";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import PieChart from "./components/PieChart";
+import { faHandHoldingDollar } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faMoneyCheckDollar } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faCircleDot } from "@fortawesome/free-regular-svg-icons";
+import TopPanel from "./components/TopPanel";
+import CircleIcon from "./components/CircleIcon";
+import PiChart from "./components/PiChart";
 
 function App() {
   return (
     <>
       <div className="container">
-        <nav class="sidebar">
-          <Nav></Nav>
-        </nav>
+        <Nav></Nav>
         <main className="main-content">
-          <div className="top-container">
-            <form className="dates">
-              For Dates Between:
-              <input type="date" value="2023-01-01" required="required" />
-              <input type="date" value="2023-01-01" required="required" />
-              <Button
-                class={"btn-purple submit-btn"}
-                buttonTitle={"Go"}
-              ></Button>
-            </form>
-            <div class="user-nav">
-              <div class="user-info">
-                <div className=".user-image">
-                  <FontAwesomeIcon icon={faUser} />
-                </div>
-
-                <span class="user-name">Brachi Goldberg</span>
-                <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                <span>Log Out</span>
-              </div>
-            </div>
-          </div>
+          <TopPanel name={"Brachi Goldberg"}></TopPanel>
           <div className="bottom-container">
             <div className="bottom-container__left">
               <Card class="total-box">
@@ -56,7 +33,7 @@ function App() {
                     amount={"$583,530.00"}
                     comment={"increase compared to last year"}
                     span={"20%"}
-                    class={"percentage-increase"}
+                    class={"percentage-increase "}
                     icon={<FontAwesomeIcon icon={faDollarSign} />}
                   ></DisplayAmountCard>
                 </div>
@@ -83,48 +60,24 @@ function App() {
                     name={"Yad Eliezer"}
                     date={"Jan 01,2023"}
                     amount={"2,000.00"}
-                    svg={
-                      <FontAwesomeIcon
-                        icon={faCircleDot}
-                        style={{
-                          "--fa-primary-color": "#321e7b",
-                          "--fa-secondary-color": "#3c2fa2",
-                          "--fa-secondary-opacity": "0.5",
-                        }}
-                      />
-                    }
+                    svg={<CircleIcon className={"second"}></CircleIcon>}
+                    icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
                     detail={"Helping the poor"}
                   ></HistoryDetailCard>
                   <HistoryDetailCard
                     name={"Kollel Kever Rachel"}
                     date={"Jan 04,2022"}
                     amount={"2,000.00"}
-                    svg={
-                      <FontAwesomeIcon
-                        icon={faCircleDot}
-                        style={{
-                          "--fa-primary-color": "#321e7b",
-                          "--fa-secondary-color": "#3c2fa2",
-                          "--fa-secondary-opacity": "0.5",
-                        }}
-                      />
-                    }
+                    svg={<CircleIcon className={"fourth"}></CircleIcon>}
+                    icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
                     detail={"Torah Institusions"}
                   ></HistoryDetailCard>
                   <HistoryDetailCard
                     name={"Likrat Kallah"}
                     date={"Jan 06,2023"}
                     amount={"2,000.00"}
-                    svg={
-                      <FontAwesomeIcon
-                        icon={faCircleDot}
-                        style={{
-                          "--fa-primary-color": "#321e7b",
-                          "--fa-secondary-color": "#3c2fa2",
-                          "--fa-secondary-opacity": "0.5",
-                        }}
-                      />
-                    }
+                    svg={<CircleIcon className={"first"}></CircleIcon>}
+                    icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
                     detail={"Hachnasas Kallah"}
                   ></HistoryDetailCard>
                 </HistoryCard>
@@ -142,6 +95,7 @@ function App() {
                     date={"Jan 01,2023"}
                     amount={"2,000.00"}
                     svg={<FontAwesomeIcon icon={faCheck} />}
+                    icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
                     detail={"Yes"}
                   ></HistoryDetailCard>
                   <HistoryDetailCard
@@ -149,6 +103,7 @@ function App() {
                     date={"Jan 04,2022"}
                     amount={"2,000.00"}
                     svg={<FontAwesomeIcon icon={faXmark} />}
+                    icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
                     detail={"No"}
                   ></HistoryDetailCard>
                   <HistoryDetailCard
@@ -156,12 +111,13 @@ function App() {
                     date={"Jan 06,2023"}
                     amount={"2,000.00"}
                     svg={<FontAwesomeIcon icon={faXmark} />}
+                    icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
                     detail={"No"}
                   ></HistoryDetailCard>
                 </HistoryCard>
               </Card>
             </div>
-            <div className=".bottom-container__right">
+            <div className="bottom-container__right">
               <Card class={""}>
                 <DisplayAmountCard
                   title={"Your Ma'aser Balance"}
@@ -171,12 +127,15 @@ function App() {
                   class={""}
                 ></DisplayAmountCard>
                 <div className="button-box">
-                  <button class="btn btn-purple">Donate</button>
+                  <button class="btn btn-purple">
+                    <FontAwesomeIcon icon={faHandHoldingDollar} />
+                    Donate
+                  </button>
                 </div>
               </Card>
               <Card class={"spending-box"}>
                 <SectionHeader title={" Donations by category"}></SectionHeader>
-                <PieChart title={"Overall"} amount={"583,530.00"}></PieChart>
+                <PiChart></PiChart>
               </Card>
             </div>
           </div>

@@ -1,13 +1,12 @@
+import { startTransition } from "react";
 import "./HistoryDetailCard.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoins } from "@fortawesome/free-solid-svg-icons";
 
 function HistoryDetailCard(props) {
   return (
     <>
       <tr>
         <div className="img">
-          <FontAwesomeIcon icon={faCoins} />
+          {props.icon}
           <span className="text">{props.name}</span>
         </div>
 
