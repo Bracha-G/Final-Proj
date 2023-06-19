@@ -5,7 +5,7 @@ function SectionHeader(props) {
     <>
       <div className="header-container">
         <h3 class="section-header">{props.title}</h3>
-        <div className="up-arrow ">{props.icon}</div>
+        <div className={"up-arrow"}>{props.icon}</div>
       </div>
     </>
   );

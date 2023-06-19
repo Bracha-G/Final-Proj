@@ -6,7 +6,7 @@ function HistoryDetailCard(props) {
     <>
       <tr>
         <div className="img">
-          {props.icon}
+          {props.children}
           <span className="text">{props.name}</span>
         </div>
 

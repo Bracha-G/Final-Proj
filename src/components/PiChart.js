@@ -3,6 +3,28 @@ import CategoryListItem from "./CategoryListItem";
 import { PieChart } from "react-minimal-pie-chart";
 
 function PiChart(props) {
+  const categoryArr = [
+    {
+      categoryName: "Hachnasas Kallah",
+      amount: "$8.000.00",
+      className: "first",
+    },
+    {
+      categoryName: "Helping the Poor",
+      amount: "$2.130.00",
+      className: "second",
+    },
+    {
+      categoryName: "Medical Institusions",
+      amount: "$1.510.00",
+      className: "third",
+    },
+    {
+      categoryName: "Torah Institusions",
+      amount: "$2.245.00",
+      className: "fourth",
+    },
+  ];
   return (
     <>
       <div className="pie-chart">
@@ -22,26 +44,15 @@ function PiChart(props) {
         <span>$583,530.00</span>
       </div>
       <div>
-        <CategoryListItem
-          categoryName="Hachnasas Kallah"
-          amount="$8.000.00"
-          className="first"
-        ></CategoryListItem>
-        <CategoryListItem
-          categoryName="Helping the Poor"
-          amount="$2.130.00"
-          className="second"
-        ></CategoryListItem>
-        <CategoryListItem
-          categoryName="Medical Institusions"
-          amount="$1.510.00"
-          className="third"
-        ></CategoryListItem>
-        <CategoryListItem
-          categoryName="Torah Institusions"
-          amount="$2.245.00"
-          className="fourth"
-        ></CategoryListItem>
+        {categoryArr.map(function (categoryListItem) {
+          return (
+            <CategoryListItem
+              categoryName={categoryListItem.categoryName}
+              amount={categoryListItem.amount}
+              className={categoryListItem.className}
+            ></CategoryListItem>
+          );
+        })}
       </div>
     </>
   );

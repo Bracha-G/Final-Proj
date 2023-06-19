@@ -18,6 +18,58 @@ import CircleIcon from "./components/CircleIcon";
 import PiChart from "./components/PiChart";
 
 function App() {
+  const historyCardDonationsArr = [
+    {
+      name: "Yad Eliezer",
+      date: "Jan 01,2023",
+      amount: "2,000.00",
+      icon: faHandHoldingDollar,
+      detail: "Helping the poor",
+    },
+    {
+      name: "Kollel Kever Rachel",
+      date: "Jan 04,2022",
+      amount: "2,000.00",
+      icon: faHandHoldingDollar,
+      detail: "Torah Institutions",
+    },
+    {
+      name: "Likrat Kallah",
+      date: "Jan 06,2023",
+      amount: "2,000.00",
+      icon: faHandHoldingDollar,
+      detail: "Hachnasas Kallah",
+    },
+  ];
+  const historyCardIncomeArr = [
+    {
+      name: "Compuskills",
+      date: "Jan 01,2023",
+      amount: "2,000.00",
+      svg: faCheck,
+      icon: faMoneyCheckDollar,
+      detail: "Yes",
+      svg: faCheck,
+    },
+    {
+      name: "NerTzaddik",
+      date: "Jan 04,2022",
+      amount: "2,000.00",
+      svg: faXmark,
+      icon: faMoneyCheckDollar,
+      detail: "No",
+      svg: faXmark,
+    },
+    {
+      name: "4Ugifts",
+      date: "Jan 06,2023",
+      amount: "2,000.00",
+      svg: faXmark,
+      icon: faMoneyCheckDollar,
+      detail: "No",
+      svg: faXmark,
+    },
+  ];
   return (
     <>
       <div className="container">
@@ -56,30 +108,18 @@ function App() {
                   title4={"Category"}
                   headerName={"Donation History"}
                 >
-                  <HistoryDetailCard
-                    name={"Yad Eliezer"}
-                    date={"Jan 01,2023"}
-                    amount={"2,000.00"}
-                    svg={<CircleIcon className={"second"}></CircleIcon>}
-                    icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
-                    detail={"Helping the poor"}
-                  ></HistoryDetailCard>
-                  <HistoryDetailCard
-                    name={"Kollel Kever Rachel"}
-                    date={"Jan 04,2022"}
-                    amount={"2,000.00"}
-                    svg={<CircleIcon className={"fourth"}></CircleIcon>}
-                    icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
-                    detail={"Torah Institusions"}
-                  ></HistoryDetailCard>
-                  <HistoryDetailCard
-                    name={"Likrat Kallah"}
-                    date={"Jan 06,2023"}
-                    amount={"2,000.00"}
-                    svg={<CircleIcon className={"first"}></CircleIcon>}
-                    icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
-                    detail={"Hachnasas Kallah"}
-                  ></HistoryDetailCard>
+                  {historyCardDonationsArr.map(function (item) {
+                    return (
+                      <HistoryDetailCard
+                        name={item.name}
+                        date={item.date}
+                        amount={item.amount}
+                        detail={item.detail}
+                      >
+                        <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
+                      </HistoryDetailCard>
+                    );
+                  })}
                 </HistoryCard>
               </Card>
               <Card>
@@ -90,30 +130,18 @@ function App() {
                   title4={"Exempt from Ma'aser"}
                   headerName={"Income History"}
                 >
-                  <HistoryDetailCard
-                    name={"Compuskills"}
-                    date={"Jan 01,2023"}
-                    amount={"2,000.00"}
-                    svg={<FontAwesomeIcon icon={faCheck} />}
-                    icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
-                    detail={"Yes"}
-                  ></HistoryDetailCard>
-                  <HistoryDetailCard
-                    name={"NerTzaddik"}
-                    date={"Jan 04,2022"}
-                    amount={"2,000.00"}
-                    svg={<FontAwesomeIcon icon={faXmark} />}
-                    icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
-                    detail={"No"}
-                  ></HistoryDetailCard>
-                  <HistoryDetailCard
-                    name={"4Ugifts"}
-                    date={"Jan 06,2023"}
-                    amount={"2,000.00"}
-                    svg={<FontAwesomeIcon icon={faXmark} />}
-                    icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
-                    detail={"No"}
-                  ></HistoryDetailCard>
+                  {historyCardIncomeArr.map(function (item) {
+                    return (
+                      <HistoryDetailCard
+                        name={item.name}
+                        date={item.date}
+                        amount={item.amount}
+                        detail={item.detail}
+                      >
+                        <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
+                      </HistoryDetailCard>
+                    );
+                  })}
                 </HistoryCard>
               </Card>
             </div>

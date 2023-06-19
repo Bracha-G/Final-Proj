@@ -7,7 +7,35 @@ import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { faHandHoldingDollar } from "@fortawesome/free-solid-svg-icons";
 import { faMoneyCheckDollar } from "@fortawesome/free-solid-svg-icons";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { toHaveClass } from "@testing-library/jest-dom/matchers";
 function Nav(props) {
+  const navButtonArr = [
+    {
+      span: "Income",
+      className: "undefined",
+      icon: <FontAwesomeIcon icon={faMoneyCheckDollar} />,
+    },
+    {
+      span: "Donations",
+      className: "undefined",
+      icon: <FontAwesomeIcon icon={faHandHoldingDollar} />,
+    },
+    {
+      span: "Inbox",
+      className: "undefined",
+      icon: <FontAwesomeIcon icon={faCommentDots} />,
+    },
+    {
+      span: "Settings",
+      className: "undefined",
+      icon: <FontAwesomeIcon icon={faGear} />,
+    },
+    {
+      span: "Log Out",
+      className: "undefined",
+      icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+    },
+  ];
   return (
     <>
       <nav className="sidebar">
@@ -16,37 +44,15 @@ function Nav(props) {
             <h2 className="sidebar__logo-header">The Ma'aser App</h2>
           </div>
           <ul className="side-nav">
-            <NavButton
-              className={"side-nav__item-active"}
-              span={"Dashboard"}
-              icon={<FontAwesomeIcon icon={faHouse} />}
-            ></NavButton>
-            <NavButton
-              pic={""}
-              span={"Income"}
-              className={"undefined"}
-              icon={<FontAwesomeIcon icon={faMoneyCheckDollar} />}
-            ></NavButton>
-            <NavButton
-              span={"Donations"}
-              className={"undefined"}
-              icon={<FontAwesomeIcon icon={faHandHoldingDollar} />}
-            ></NavButton>
-            <NavButton
-              span={"Inbox"}
-              className={"undefined"}
-              icon={<FontAwesomeIcon icon={faCommentDots} />}
-            ></NavButton>
-            <NavButton
-              span={"Settings"}
-              className={"undefined"}
-              icon={<FontAwesomeIcon icon={faGear} />}
-            ></NavButton>
-            <NavButton
-              span={"Log Out"}
-              className={"undefined"}
-              icon={<FontAwesomeIcon icon={faArrowRightFromBracket} />}
-            ></NavButton>
+            {navButtonArr.map(function (user) {
+              return (
+                <NavButton
+                  span={user.span}
+                  className={user.className}
+                  icon={user.icon}
+                ></NavButton>
+              );
+            })}
           </ul>
         </div>
       </nav>
