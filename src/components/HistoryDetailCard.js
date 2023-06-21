@@ -1,5 +1,6 @@
 import { startTransition } from "react";
 import "./HistoryDetailCard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function HistoryDetailCard(props) {
   return (
@@ -13,7 +14,12 @@ function HistoryDetailCard(props) {
         <td>{props.date}</td>
         <td>${props.amount}</td>
         <td>
-          <span className="pic">{props.svg}</span>
+          <span className="pic">
+            <FontAwesomeIcon
+              icon={props.svg}
+              style={{ color: `${props.color}` }}
+            ></FontAwesomeIcon>
+          </span>
           {props.detail}
         </td>
       </tr>

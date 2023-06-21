@@ -16,8 +16,16 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import TopPanel from "./components/TopPanel";
 import CircleIcon from "./components/CircleIcon";
 import PiChart from "./components/PiChart";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 function App() {
+  const [mainContent, updateMainContent] = useState([]);
+  function changeMainContent() {
+    updateMainContent(function () {
+      return;
+    });
+  }
   const historyCardDonationsArr = [
     {
       name: "Yad Eliezer",
@@ -25,6 +33,8 @@ function App() {
       amount: "2,000.00",
       icon: faHandHoldingDollar,
       detail: "Helping the poor",
+      svg: faCircle,
+      color: "#ffacc8",
     },
     {
       name: "Kollel Kever Rachel",
@@ -32,6 +42,8 @@ function App() {
       amount: "2,000.00",
       icon: faHandHoldingDollar,
       detail: "Torah Institutions",
+      svg: faCircle,
+      color: "#7c5cfc",
     },
     {
       name: "Likrat Kallah",
@@ -39,6 +51,8 @@ function App() {
       amount: "2,000.00",
       icon: faHandHoldingDollar,
       detail: "Hachnasas Kallah",
+      svg: faCircle,
+      color: "#eb7ca6",
     },
   ];
   const historyCardIncomeArr = [
@@ -49,7 +63,6 @@ function App() {
       svg: faCheck,
       icon: faMoneyCheckDollar,
       detail: "Yes",
-      svg: faCheck,
     },
     {
       name: "NerTzaddik",
@@ -58,7 +71,6 @@ function App() {
       svg: faXmark,
       icon: faMoneyCheckDollar,
       detail: "No",
-      svg: faXmark,
     },
     {
       name: "4Ugifts",
@@ -67,13 +79,12 @@ function App() {
       svg: faXmark,
       icon: faMoneyCheckDollar,
       detail: "No",
-      svg: faXmark,
     },
   ];
   return (
     <>
       <div className="container">
-        <Nav></Nav>
+        <Nav onClick={changeMainContent}></Nav>
         <main className="main-content">
           <TopPanel name={"Brachi Goldberg"}></TopPanel>
           <div className="bottom-container">
@@ -115,6 +126,8 @@ function App() {
                         date={item.date}
                         amount={item.amount}
                         detail={item.detail}
+                        svg={item.svg}
+                        color={item.color}
                       >
                         <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
                       </HistoryDetailCard>
@@ -137,6 +150,7 @@ function App() {
                         date={item.date}
                         amount={item.amount}
                         detail={item.detail}
+                        svg={item.svg}
                       >
                         <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
                       </HistoryDetailCard>
