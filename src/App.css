@@ -28,6 +28,7 @@ body {
   border-bottom: 1px solid #f3f5f7;
   padding: 18px 32px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
