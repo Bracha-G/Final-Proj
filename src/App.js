@@ -11,6 +11,7 @@ import Settings from "./components/Settings";
 
 function App() {
   const [mainContent, updateMainContent] = useState(<DashBoard></DashBoard>);
+  const [activeButton, changeActiveButton] = useState("");
 
   function changeMainContent(value) {
     updateMainContent(function () {

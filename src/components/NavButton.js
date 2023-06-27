@@ -2,15 +2,13 @@ import "./NavButton.css";
 import { useState } from "react";
 
 function NavButton(props) {
-  const [NavOption, SetNavOption] = useState("");
-
-  function hi() {
+  function changePage() {
     props.onClick(props.span);
   }
 
   return (
     <>
-      <li onClick={hi} className={`side-nav__item ${props.className}`}>
+      <li onClick={changePage} className={`side-nav__item ${props.className}`}>
         <div id={props.key} className="icon">
           {props.icon}
         </div>

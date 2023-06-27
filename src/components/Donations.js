@@ -42,7 +42,15 @@ function Donations(props) {
 
       <div className="bottom-container">
         <div className="bottom-container__left_Donations">
-          <h1 className="donationsTitle">{"Donations"}</h1>
+          <div className="title">
+            <h1 className="donationsTitle">
+              {"Donations"}
+              <span className="title">
+                <FontAwesomeIcon icon={faHandHoldingDollar} />
+              </span>
+            </h1>
+          </div>
+
           <Card>
             <HistoryCard
               title1={"Donations"}
