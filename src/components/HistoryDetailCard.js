@@ -1,6 +1,7 @@
 import { startTransition } from "react";
 import "./HistoryDetailCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "./Button";
 
 function HistoryDetailCard(props) {
   return (
@@ -21,6 +22,10 @@ function HistoryDetailCard(props) {
             ></FontAwesomeIcon>
           </span>
           {props.detail}
+        </td>
+        <td>
+          {props.button1}
+          {props.button2}
         </td>
       </tr>
     </>

@@ -6,36 +6,46 @@ import HistoryDetailCard from "./HistoryDetailCard";
 import { faHandHoldingDollar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import Button from "./Button";
+import { useState, useRef } from "react";
+
 function Donations(props) {
-  const historyCardDonationsArr = [
-    {
-      name: "Yad Eliezer",
-      date: "Jan 01,2023",
-      amount: "2,000.00",
+  const [donationArr, updateDonationArr] = useState([]);
+  const [companyName, updateCompanyName] = useState("");
+  const [amount, updateAmount] = useState("");
+  const [date, updateDate] = useState("");
+  const [category, updateCategory] = useState("");
+  let id = useRef(0);
+
+  function addDonation(donationObj) {
+    updateDonationArr(function (prev) {
+      return [...prev, donationObj];
+    });
+  }
+  function removeDonation(id) {
+    updateDonationArr(function (prev) {
+      return prev.filter(function (donation) {
+        return donation.id != id;
+      });
+    });
+  }
+  function SubmitHandler(e) {
+    e.preventDefault();
+    const newDonation = {
       icon: faHandHoldingDollar,
-      detail: "Helping the poor",
-      svg: faCircle,
-      color: "#ffacc8",
-    },
-    {
-      name: "Kollel Kever Rachel",
-      date: "Jan 04,2022",
-      amount: "2,000.00",
-      icon: faHandHoldingDollar,
-      detail: "Torah Institutions",
-      svg: faCircle,
-      color: "#7c5cfc",
-    },
-    {
-      name: "Likrat Kallah",
-      date: "Jan 06,2023",
-      amount: "2,000.00",
-      icon: faHandHoldingDollar,
-      detail: "Hachnasas Kallah",
-      svg: faCircle,
-      color: "#eb7ca6",
-    },
-  ];
+      name: companyName,
+      date: date,
+      detail: category,
+      amount: amount,
+      id: id.current,
+    };
+    addDonation(newDonation);
+    id.current++;
+    updateCategory("");
+    updateCompanyName("");
+    updateAmount("");
+    updateDate("");
+  }
   return (
     <>
       <TopPanel name={"Brachi Goldberg"}></TopPanel>
@@ -50,31 +60,100 @@ function Donations(props) {
               </span>
             </h1>
           </div>
-
-          <Card>
-            <HistoryCard
-              title1={"Donations"}
-              title2={"Date"}
-              title3={"Amount"}
-              title4={"Category"}
-              headerName={"Donation History"}
-            >
-              {historyCardDonationsArr.map(function (item) {
-                return (
-                  <HistoryDetailCard
-                    name={item.name}
-                    date={item.date}
-                    amount={item.amount}
-                    detail={item.detail}
-                    svg={item.svg}
-                    color={item.color}
+          <div className="cardFlex">
+            <div className="donationsCard">
+              <Card>
+                <HistoryCard
+                  title1={"Donations"}
+                  title2={"Date"}
+                  title3={"Amount"}
+                  title4={"Category"}
+                  headerName={"Donation History"}
+                >
+                  {donationArr.map(function (item) {
+                    return (
+                      <HistoryDetailCard
+                        name={item.name}
+                        date={item.date}
+                        amount={item.amount}
+                        detail={item.detail}
+                        svg={item.svg}
+                        color={item.color}
+                        button1={
+                          <Button
+                            class={"btn-purple submit-btn"}
+                            buttonTitle={"Edit"}
+                          ></Button>
+                        }
+                        button2={
+                          <Button
+                            onClick={deleteDonation}
+                            class={"btn-purple submit-btn"}
+                            buttonTitle={"Delete"}
+                          ></Button>
+                        }
+                      >
+                        <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
+                      </HistoryDetailCard>
+                    );
+                  })}
+                </HistoryCard>
+              </Card>
+            </div>
+            <div className="formCard">
+              <Card>
+                <form onSubmit={SubmitHandler}>
+                  <h4 className="formTitles">{"Company Name"}</h4>
+                  <input
+                    onChange={(e) => updateCompanyName(e.target.value)}
+                    className="inputStyle"
+                    type="text"
+                    name="companyName"
+                    value={companyName}
+                  ></input>
+                  <h4 className="formTitles">{"Date"}</h4>
+                  <input
+                    onChange={(e) => updateDate(e.target.value)}
+                    className="inputStyle datePadding"
+                    type="date"
+                    name="date"
+                    value={date}
+                  ></input>
+                  <h4 className="formTitles">{"Amount"}</h4>
+                  <input
+                    onChange={(e) => updateAmount(e.target.value)}
+                    className="inputStyle"
+                    type="text"
+                    name="donationAmount"
+                    value={amount}
+                  ></input>
+                  <h4 className="formTitles">{"Categories"}</h4>
+                  <select
+                    onChange={(e) => updateCategory(e.target.value)}
+                    className="inputStyle"
+                    name="categories"
+                    id="categories"
                   >
-                    <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
-                  </HistoryDetailCard>
-                );
-              })}
-            </HistoryCard>
-          </Card>
+                    <option value="">{"Select a Category"}</option>
+                    <option value="Hachnosas Kallah">
+                      {"Hachnosas Kallah"}
+                    </option>
+                    <option value="Helping the Poor">
+                      {"Helping the Poor"}
+                    </option>
+                  </select>
+                  <Button
+                    buttonTitle={"Submit"}
+                    class={"btn btn-white button "}
+                  ></Button>
+                  <Button
+                    buttonTitle={"Cancel"}
+                    class={"btn btn-white button "}
+                  ></Button>
+                </form>
+              </Card>
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -1,5 +1,5 @@
 .bottom-container__left_Donations {
-  width: 70%;
+  width: 100%;
 }
 .donationsTitle {
   text-align: center;
@@ -8,4 +8,36 @@
 }
 .title {
   margin-left: 10px;
+}
+
+.cardFlex {
+  display: flex;
+  flex-direction: row;
+}
+.donationsCard {
+  width: 70%;
+  margin-right: 15px;
+}
+.formCard {
+  width: 30%;
+  flex-grow: 2;
+}
+.inputStyle {
+  background-color: #ecf0f1;
+  border-radius: 4px;
+  height: 30px;
+  width: 100%;
+}
+.datePadding {
+  margin: auto;
+}
+
+.button {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+.formTitles {
+  margin-bottom: 16px;
+  margin-top: 16px;
 }

@@ -138,6 +138,8 @@ function DashBoard(props) {
                     amount={item.amount}
                     detail={item.detail}
                     svg={item.svg}
+                    button1={""}
+                    button2={""}
                   >
                     <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
                   </HistoryDetailCard>
