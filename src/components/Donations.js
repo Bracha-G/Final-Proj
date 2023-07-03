@@ -53,8 +53,8 @@ function Donations(props) {
     updateAmount("");
     updateDate("");
   }
-  function deleteDonation(item) {
-    removeDonation();
+  function deleteDonation(id) {
+    removeDonation(id);
   }
   return (
     <>
@@ -89,19 +89,8 @@ function Donations(props) {
                         detail={item.detail}
                         svg={item.svg}
                         color={item.color}
-                        button1={
-                          <Button
-                            class={"btn-purple submit-btn"}
-                            buttonTitle={"Edit"}
-                          ></Button>
-                        }
-                        button2={
-                          <Button
-                            onClick={deleteDonation}
-                            class={"btn-purple submit-btn"}
-                            buttonTitle={"Delete"}
-                          ></Button>
-                        }
+                        onClick={deleteDonation}
+                        id={item.id}
                       >
                         <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
                       </HistoryDetailCard>
@@ -158,12 +147,6 @@ function Donations(props) {
                   >
                     {"Submit"}
                   </button>
-
-                  <Button
-                    buttonTitle={"Cancel"}
-                    class={"btn btn-white button "}
-                    onClick={CancelHandler}
-                  ></Button>
                 </form>
               </Card>
             </div>

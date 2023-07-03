@@ -3,7 +3,9 @@ import "./Button.css";
 function Button(props) {
   return (
     <>
-      <button className={`${props.class}`}>{props.buttonTitle}</button>
+      <button onClick={() => props.onClick()} className={`${props.class}`}>
+        {props.buttonTitle}
+      </button>
     </>
   );
 }

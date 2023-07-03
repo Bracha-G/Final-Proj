@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
 
 function HistoryDetailCard(props) {
+  function ClickHandler() {
+    props.onClick(props.id);
+  }
   return (
     <>
       <tr>
@@ -24,8 +27,19 @@ function HistoryDetailCard(props) {
           {props.detail}
         </td>
         <td>
-          {props.button1}
-          {props.button2}
+          {props.onClick && (
+            <>
+              <Button
+                class={"btn-purple submit-btn"}
+                buttonTitle={"Edit"}
+              ></Button>
+              <Button
+                onClick={ClickHandler}
+                class={"btn-purple submit-btn"}
+                buttonTitle={"Delete"}
+              ></Button>
+            </>
+          )}
         </td>
       </tr>
     </>
