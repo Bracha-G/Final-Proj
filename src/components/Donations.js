@@ -29,6 +29,13 @@ function Donations(props) {
       });
     });
   }
+  function CancelHandler(e) {
+    e.preventDefault();
+    updateCategory("");
+    updateCompanyName("");
+    updateAmount("");
+    updateDate("");
+  }
   function SubmitHandler(e) {
     e.preventDefault();
     const newDonation = {
@@ -45,6 +52,9 @@ function Donations(props) {
     updateCompanyName("");
     updateAmount("");
     updateDate("");
+  }
+  function deleteDonation(item) {
+    removeDonation();
   }
   return (
     <>
@@ -102,7 +112,7 @@ function Donations(props) {
             </div>
             <div className="formCard">
               <Card>
-                <form onSubmit={SubmitHandler}>
+                <form>
                   <h4 className="formTitles">{"Company Name"}</h4>
                   <input
                     onChange={(e) => updateCompanyName(e.target.value)}
@@ -142,13 +152,17 @@ function Donations(props) {
                       {"Helping the Poor"}
                     </option>
                   </select>
-                  <Button
-                    buttonTitle={"Submit"}
-                    class={"btn btn-white button "}
-                  ></Button>
+                  <button
+                    className="btn btn-white button"
+                    onClick={SubmitHandler}
+                  >
+                    {"Submit"}
+                  </button>
+
                   <Button
                     buttonTitle={"Cancel"}
                     class={"btn btn-white button "}
+                    onClick={CancelHandler}
                   ></Button>
                 </form>
               </Card>

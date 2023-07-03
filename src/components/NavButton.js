@@ -1,5 +1,4 @@
 import "./NavButton.css";
-import { useState } from "react";
 
 function NavButton(props) {
   function changePage() {
