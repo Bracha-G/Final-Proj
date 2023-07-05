@@ -8,16 +8,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 import { useState, useRef } from "react";
+import Form from "./From";
 
 function Donations(props) {
-  const [donationArr, updateDonationArr] = useState([]);
+  //const [donationArr, updateDonationArr] = useState([]);
   const [companyName, updateCompanyName] = useState("");
   const [amount, updateAmount] = useState("");
   const [date, updateDate] = useState("");
   const [category, updateCategory] = useState("");
   let id = useRef(0);
 
-  function addDonation(donationObj) {
+  /*function addDonation(donationObj) {
     updateDonationArr(function (prev) {
       return [...prev, donationObj];
     });
@@ -28,14 +29,8 @@ function Donations(props) {
         return donation.id != id;
       });
     });
-  }
-  function CancelHandler(e) {
-    e.preventDefault();
-    updateCategory("");
-    updateCompanyName("");
-    updateAmount("");
-    updateDate("");
-  }
+  }*/
+
   function SubmitHandler(e) {
     e.preventDefault();
     const newDonation = {
@@ -46,16 +41,16 @@ function Donations(props) {
       amount: amount,
       id: id.current,
     };
-    addDonation(newDonation);
+    props.addDonation(newDonation);
     id.current++;
     updateCategory("");
     updateCompanyName("");
     updateAmount("");
     updateDate("");
   }
-  function deleteDonation(id) {
+  /*function deleteDonation(id) {
     removeDonation(id);
-  }
+  }*/
   return (
     <>
       <TopPanel name={"Brachi Goldberg"}></TopPanel>
@@ -80,7 +75,7 @@ function Donations(props) {
                   title4={"Category"}
                   headerName={"Donation History"}
                 >
-                  {donationArr.map(function (item) {
+                  {props.array.map(function (item) {
                     return (
                       <HistoryDetailCard
                         name={item.name}
@@ -89,7 +84,7 @@ function Donations(props) {
                         detail={item.detail}
                         svg={item.svg}
                         color={item.color}
-                        onClick={deleteDonation}
+                        onClick={props.deleteDonation}
                         id={item.id}
                       >
                         <FontAwesomeIcon icon={item.icon}></FontAwesomeIcon>
@@ -101,6 +96,12 @@ function Donations(props) {
             </div>
             <div className="formCard">
               <Card>
+                <Form
+                  name="Company Name"
+                  extraInfo="Categories"
+                  SubmitHandler={SubmitHandler}
+                ></Form>
+                {/*
                 <form>
                   <h4 className="formTitles">{"Company Name"}</h4>
                   <input
@@ -147,7 +148,7 @@ function Donations(props) {
                   >
                     {"Submit"}
                   </button>
-                </form>
+                </form>*/}
               </Card>
             </div>
           </div>

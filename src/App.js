@@ -11,7 +11,33 @@ import Settings from "./components/Settings";
 
 function App() {
   const [mainContent, updateMainContent] = useState(<DashBoard></DashBoard>);
-  const [activeButton, changeActiveButton] = useState("");
+  const [donationArr, updateDonationArr] = useState([]);
+  const [incomeArr, updateIncomeArr] = useState([]);
+
+  function addDonation(donationObj) {
+    updateDonationArr(function (prev) {
+      return [...prev, donationObj];
+    });
+  }
+  function removeDonation(id) {
+    updateDonationArr(function (prev) {
+      return prev.filter(function (donation) {
+        return donation.id != id;
+      });
+    });
+  }
+  function addIncome(incomeObj) {
+    updateIncomeArr(function (prev) {
+      return [...prev, incomeObj];
+    });
+  }
+  function removeIncome(id) {
+    updateIncomeArr(function (prev) {
+      return prev.filter(function (income) {
+        return income.id != id;
+      });
+    });
+  }
 
   function changeMainContent(value) {
     updateMainContent(function () {
@@ -19,9 +45,21 @@ function App() {
         case "Dashboard":
           return <DashBoard></DashBoard>;
         case "Income":
-          return <Income></Income>;
+          return (
+            <Income
+              deleteDonation={removeIncome}
+              addDonation={addIncome}
+              array={incomeArr}
+            ></Income>
+          );
         case "Donations":
-          return <Donations></Donations>;
+          return (
+            <Donations
+              deleteDonation={removeDonation}
+              addDonation={addDonation}
+              array={donationArr}
+            ></Donations>
+          );
         case "Inbox":
           return <Inbox></Inbox>;
         case "Log Out":
